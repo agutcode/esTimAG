@@ -1,0 +1,74 @@
+<app-sidebar>
+    <ng-container content>
+        <app-heading [title]="'Prestar Juego'" [module]="'purchases'" [action]="'Modificar'"></app-heading>
+        <table *ngIf="game" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Juego
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        DLC
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Género
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                        <img class="w-16 h-16 rounded-full" src="{{game.cover}}" alt="{{game.name}}">
+                        <div class="ps-3">
+                            <div class="text-base font-semibold">{{game.name}}</div>
+                        </div>  
+                    </td>
+                    <td class="px-6 py-4">
+                        {{game.dlc ? 'Sí' : 'No'}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{game.genre}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form [formGroup]="loanForm">
+            <div class="grid gap-4 my-4 grid-cols-2">
+                <div class="col-span-1">
+                  <label
+                    for="userId"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Usuario a quien Presta</label>
+                  <select
+                    id="userId"
+                    formControlName="userId"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  >
+                    <option selected="">Seleccione un usuario</option>
+                    <option *ngFor="let user of users" [value]="user.id">{{user.firstname}} {{user.lastname}} - {{user.email}}</option>
+                  </select>
+                </div>
+              </div>
+              <label
+              for="finishDate"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Fecha de finalización de prestamo</label>
+              <div class="relative max-w-sm mb-4">
+                <div class="absolute inset-y-0 end-0 flex items-center pe-3.5 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                  </svg>
+                </div>
+                <input type="date" formControlName="finishDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-5 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+              </div>
+              <button
+                action
+                (click)="createLoan()"
+                type="submit"
+                class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Prestar
+              </button>
+        </form>
+    </ng-container>
+</app-sidebar>

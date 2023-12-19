@@ -1,0 +1,181 @@
+<div class="game-form-container">
+  <form [formGroup]="gameForm" class="max-w-xl">
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        name="name"
+        formControlName="name"
+        id="name"
+        class="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="name"
+        class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Nombre</label
+      >      
+      <small *ngIf="gameForm.get('name')?.invalid && (gameForm.get('name')?.dirty || gameForm.get('name')?.touched || submitted)" class="mt-2 text-md text-red-600 dark:text-red-500">Campo requerido</small>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <textarea
+        type="text"
+        name="description"
+        formControlName="description"
+        id="description"
+        class="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      ></textarea>
+      <label
+        for="description"
+        class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Descripción</label
+      >      
+      <small *ngIf="gameForm.get('description')?.invalid && (gameForm.get('description')?.dirty || gameForm.get('description')?.touched || submitted)" class="mt-2 text-md text-red-600 dark:text-red-500">Campo requerido</small>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="text"
+          name="rq_cpu"
+          id="rq_cpu"
+          formControlName="cpu"
+          class="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+
+        />
+        <label
+          for="rq_cpu"
+          class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >CPU</label
+        >
+        <small *ngIf="gameForm.get('cpu')?.invalid && (gameForm.get('cpu')?.dirty || gameForm.get('cpu')?.touched || submitted)" class="mt-2 text-md text-red-600 dark:text-red-500">Campo requerido</small>
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="text"
+          name="rq_memory"
+          formControlName="memory"
+          id="rq_memory"
+          class="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+
+        />
+        <label
+          for="rq_memory"
+          class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Memoria</label
+        >
+        <small *ngIf="gameForm.get('memory')?.invalid && (gameForm.get('memory')?.dirty || gameForm.get('memory')?.touched || submitted)" class="mt-2 text-md text-red-600 dark:text-red-500">Campo requerido</small>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="text"
+          name="rq_storage"
+          formControlName="storage"
+          id="rq_storage"
+          class="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+
+        />
+        <label
+          for="rq_storage"
+          class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Almacenamiento</label
+        >
+        <small *ngIf="gameForm.get('storage')?.invalid && (gameForm.get('storage')?.dirty || gameForm.get('storage')?.touched || submitted)" class="mt-2 text-md text-red-600 dark:text-red-500">Campo requerido</small>
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="text"
+          name="rq_gpu"
+          formControlName="gpu"
+          id="rq_gpu"
+          class="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+
+        />
+        <label
+          for="rq_gpu"
+          class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >GPU </label
+        >
+        <small *ngIf="gameForm.get('gpu')?.invalid && (gameForm.get('gpu')?.dirty || gameForm.get('gpu')?.touched || submitted)" class="mt-2 text-md text-red-600 dark:text-red-500">Campo requerido</small>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="number"
+          name="game-price"
+          formControlName="price"
+          id="game-price"
+          class="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+
+        />
+        <label
+          for="game-price"
+          class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Precio</label
+        >
+        <small *ngIf="gameForm.get('price')?.invalid && (gameForm.get('price')?.dirty || gameForm.get('price')?.touched || submitted)" class="mt-2 text-md text-red-600 dark:text-red-500">Campo requerido</small>
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          type="text"
+          name="dev_company"
+          formControlName="company"
+          id="dev_company"
+          class="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+
+        />
+        <label
+          for="dev_company"
+          class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Desarrolladora</label
+        >
+        <small *ngIf="gameForm.get('company')?.invalid && (gameForm.get('company')?.dirty || gameForm.get('company')?.touched || submitted)" class="mt-2 text-md text-red-600 dark:text-red-500">Campo requerido</small>
+      </div>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        name="cover_img"
+        formControlName="cover"
+        id="cover_img"
+        class="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="cover_img"
+        class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >URL imagen cover</label
+      >
+      <small *ngIf="gameForm.get('cover')?.invalid && (gameForm.get('cover')?.dirty || gameForm.get('cover')?.touched || submitted)" class="mt-2 text-md text-red-600 dark:text-red-500">Campo requerido</small>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+        <label for="game_genre" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Genero</label>
+        <select *ngIf="genres" id="game_genre" formControlName="genre" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option *ngFor="let genre of genres" [value]="genre.name" [attr.selected]="game !== undefined && (genre.name === game.genre) ? 'selected' : null">{{genre.name}}</option>
+        </select>
+        <small *ngIf="gameForm.get('genre')?.invalid && (gameForm.get('genre')?.dirty || gameForm.get('genre')?.touched || submitted)" class="mt-2 text-md text-red-600 dark:text-red-500">Campo requerido</small>
+    </div>
+    <div class="flex items-center mb-5">
+        <input id="link-checkbox" formControlName="dlc" type="checkbox" [checked]="isEdit && game ? game.dlc : ''" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="link-checkbox" class="ms-2 text-md font-medium text-gray-900 dark:text-gray-300">Es un DLC</label>
+    </div>
+    <ng-content select="[action]"></ng-content>
+  </form>
+</div>
